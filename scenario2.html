@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scenario 2: Financial Status & Report Generator - 02 Innovation Lab</title>
+  <link rel="stylesheet" href="css/whatsapp.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <nav class="portal-navbar">
+    <a href="index.html" class="brand-wrapper">
+      <img src="assets/logo.jpg" alt="02 Innovation Lab" class="brand-logo">
+      <div class="brand-title-group">
+        <h1>02 Innovation Lab</h1>
+        <div class="brand-subtitle">WhatsApp Accounting Bot Prototype</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-pill">🏠 All Scenarios</a>
+      <a href="scenario1.html" class="nav-pill">⚡ Scenario 1</a>
+      <a href="scenario2.html" class="nav-pill active">📊 Scenario 2 <span class="badge">Financial Status</span></a>
+      <a href="scenario3.html" class="nav-pill">⚠️ Scenario 3</a>
+      <a href="scenario4.html" class="nav-pill">⏰ Scenario 4</a>
+      <a href="scenario5.html" class="nav-pill">🔔 Scenario 5</a>
+    </div>
+  </nav>
+
+  <!-- Prototype Workspace -->
+  <div class="prototype-container">
+    
+    <!-- Mobile Phone Mockup Frame -->
+    <div class="phone-mockup-wrapper">
+      <div class="phone-island">
+        <div class="island-camera"></div>
+        <div class="island-sensor"></div>
+      </div>
+
+      <div class="phone-screen">
+        <!-- Status Bar -->
+        <div class="phone-statusbar">
+          <span>11:15</span>
+          <div class="statusbar-icons">
+            <span>5G</span>
+            <span>📶</span>
+            <span>97% 🔋</span>
+          </div>
+        </div>
+
+        <!-- WhatsApp Chat Header -->
+        <div class="wa-chat-header">
+          <div class="wa-header-left">
+            <span class="wa-back-btn">‹</span>
+            <div class="wa-avatar-box">
+              <img src="assets/logo.jpg" alt="02 Bot" class="wa-avatar">
+            </div>
+            <div class="wa-contact-info">
+              <div class="wa-contact-name">
+                02 Innovation Lab
+                <span class="wa-verified-badge">✓</span>
+              </div>
+              <div class="wa-contact-status">
+                <span class="status-dot"></span>
+                Financial Intelligence Active
+              </div>
+            </div>
+          </div>
+          <div class="wa-header-actions">
+            <button class="wa-icon-btn" title="Video Call">📹</button>
+            <button class="wa-icon-btn" title="Voice Call">📞</button>
+            <button class="wa-icon-btn" title="More Options">⋮</button>
+          </div>
+        </div>
+
+        <!-- Chat Conversation Messages -->
+        <div class="wa-chat-body" id="chatBody">
+          <div class="wa-date-divider">September 20, 2026</div>
+          <div class="wa-security-note">
+            🔒 Financial Summary Bot • Automated Real-Time Ledger Analytics
+          </div>
+
+          <!-- Typing Indicator -->
+          <div class="wa-typing-indicator" id="typingIndicator" style="display: none;">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+          </div>
+        </div>
+
+        <!-- Interactive Input Bar -->
+        <div class="wa-chat-footer">
+          <div class="wa-input-pill">
+            <span class="wa-input-icon">😊</span>
+            <input type="text" id="chatInput" placeholder="Ask for financial reports, balances..." />
+            <span class="wa-input-icon" title="Attachment">📎</span>
+            <span class="wa-input-icon" title="Camera">📷</span>
+          </div>
+          <button class="wa-mic-btn" id="sendBtn" title="Send message">➤</button>
+        </div>
+
+        <!-- Bottom Home Indicator -->
+        <div class="phone-home-indicator">
+          <div class="home-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Developer & Stakeholder Inspector Panel -->
+    <div class="dev-showcase-panel">
+      <div class="scenario-header">
+        <div class="scenario-title-area">
+          <h2>
+            <span>Scenario 2: Financial Status & PDF Statement Export</span>
+            <span class="scenario-tag">Reporting Engine</span>
+          </h2>
+          <p class="scenario-desc">
+            Demonstrates intent detection for financial health queries, calculation of periodic totals (Income, Expenses, Uncollected Debts, Net Profit), dynamic PDF generation, and secure authenticated dashboard link generation.
+          </p>
+        </div>
+      </div>
+
+      <!-- Playback Controls -->
+      <div class="control-bar">
+        <button class="control-btn primary" id="btnPlay">▶️ Auto-Play</button>
+        <button class="control-btn" id="btnNext">⏭️ Next Step</button>
+        <button class="control-btn" id="btnComplete">⚡ Show All</button>
+        <button class="control-btn" id="btnReset">🔄 Reset</button>
+        <button class="control-btn" id="btnThemeToggle">🌙 Dark Mode</button>
+        <span class="progress-indicator" id="stepCounter">Step 0 of 2</span>
+      </div>
+
+      <!-- Developer Specs Tabs -->
+      <div class="dev-tabs-header">
+        <button class="dev-tab-btn active" data-tab="tab-overview">📊 Summary Metrics</button>
+        <button class="dev-tab-btn" data-tab="tab-webhook">⚡ Webhook & PDF Dispatch</button>
+        <button class="dev-tab-btn" data-tab="tab-database">🗄️ Aggregation Queries</button>
+        <button class="dev-tab-btn" data-tab="tab-nlp">🧠 Intent Engine</button>
+      </div>
+
+      <!-- Tab 1: Summary Metrics -->
+      <div class="dev-tab-content active" id="tab-overview">
+        <div class="entity-grid">
+          <div class="entity-card">
+            <div class="entity-label">Report Period</div>
+            <div class="entity-val">Sep 1 - Sep 20, 2026</div>
+            <div class="entity-note">Current Active Fiscal Month MTD</div>
+          </div>
+          <div class="entity-card">
+            <div class="entity-label">Total Revenue (Income)</div>
+            <div class="entity-val" style="color: #10b981;">₦40,000,000.00</div>
+            <div class="entity-note">Training services, Consulting & Lab Projects</div>
+          </div>
+          <div class="entity-card">
+            <div class="entity-label">Total Expenses</div>
+            <div class="entity-val" style="color: #ef4444;">₦3,030,000.00</div>
+            <div class="entity-note">Salaries, Starlink, Office Supplies, Cloud</div>
+          </div>
+          <div class="entity-card">
+            <div class="entity-label">Outstanding Debts / Receivables</div>
+            <div class="entity-val" style="color: #f59e0b;">₦29,000.00</div>
+            <div class="entity-note">Unpaid customer invoices & balances</div>
+          </div>
+          <div class="entity-card" style="grid-column: 1 / -1; border-color: rgba(16, 185, 129, 0.4);">
+            <div class="entity-label">Net Operating Cash Flow</div>
+            <div class="entity-val" style="color: #10b981; font-size: 1.2rem;">+₦36,970,000.00</div>
+            <div class="entity-note">Profit Margin: ~92.4% • Cash reserves healthy</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Webhook & PDF Dispatch -->
+      <div class="dev-tab-content" id="tab-webhook">
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>WHATSAPP_MEDIA_DOCUMENT_DISPATCH.json</span>
+            <button class="control-btn" style="padding: 2px 8px; font-size: 0.7rem;" onclick="copyCode('docCode')">📋 Copy</button>
+          </div>
+          <div class="code-content" id="docCode">{
+  "messaging_product": "whatsapp",
+  "recipient_type": "individual",
+  "to": "2348031234567",
+  "type": "document",
+  "document": {
+    "link": "https://chatadmin.02innovationslab.com/api/reports/pdf/summary-20260920-93939.pdf",
+    "caption": "Here is your detailed financial summary statement (Sep 1 - 20, 2026)",
+    "filename": "02_Innovation_Lab_Financial_Summary_Sep2026.pdf"
+  }
+}</div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Aggregation Queries -->
+      <div class="dev-tab-content" id="tab-database">
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>FINANCIAL_AGGREGATION.sql</span>
+          </div>
+          <div class="code-content">-- Calculate Period Totals for September 2026
+SELECT 
+  SUM(CASE WHEN type = 'INCOME' THEN amount ELSE 0 END) AS total_income,
+  SUM(CASE WHEN type = 'EXPENSE' THEN amount ELSE 0 END) AS total_expenses,
+  (SELECT COALESCE(SUM(amount_due), 0) FROM debts_receivables WHERE status = 'UNPAID') AS total_uncollected_debts,
+  (SUM(CASE WHEN type = 'INCOME' THEN amount ELSE 0 END) - SUM(CASE WHEN type = 'EXPENSE' THEN amount ELSE 0 END)) AS net_profit
+FROM transactions
+WHERE transaction_date BETWEEN '2026-09-01' AND '2026-09-20'
+  AND company_id = '02_INNOVATION_LAB';</div>
+        </div>
+      </div>
+
+      <!-- Tab 4: NLP Rules -->
+      <div class="dev-tab-content" id="tab-nlp">
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>INTENT_MATCHING_RULES.yml</span>
+          </div>
+          <div class="code-content">intent: GET_FINANCIAL_SUMMARY
+keywords:
+  - "financial status"
+  - "how much do we have"
+  - "current balance"
+  - "monthly report"
+  - "income vs expense"
+response_template:
+  include_quick_metrics: true
+  generate_pdf: true
+  pdf_generator_service: "Puppeteer / PDFKit"
+  include_dashboard_auth_token: true</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/chat-engine.js"></script>
+  <script>
+    const scenario2Messages = [
+      {
+        sender: 'me',
+        type: 'text',
+        text: `Hey, I want to know our current financial status`,
+        time: '11:15 AM'
+      },
+      {
+        sender: 'bot',
+        type: 'text',
+        text: `Ok sure, this is a basic summary for this month (September 1st - 20th): 📊`,
+        reportCard: [
+          { label: '📉 Debts / Receivables', value: '₦29,000' },
+          { label: '💸 Expenses', value: '₦3,030,000' },
+          { label: '💰 Income', value: '₦40,000,000' },
+          { label: '📈 Net Operating Cash Flow', value: '+₦36,970,000', isNet: true }
+        ],
+        actions: [
+          { label: '📄 Download summary.pdf (1.2 MB)', url: 'https://chatadmin.02innovationslab.com/summary/93939/pdf' },
+          { label: '🌐 Open Web Analytics Dashboard', url: 'https://chatadmin.02innovationslab.com/summary/93939/overview' },
+          { label: '🔍 Filter by Category', onClick: "alert('Displaying Expense breakdown: Salaries: ₦1.8M, Cloud/Infra: ₦800k, Ops: ₦430k')" }
+        ],
+        time: '11:15 AM'
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      window.engine = new ChatPrototypeEngine({
+        scenarioId: 'scenario2',
+        messages: scenario2Messages,
+        containerId: 'chatBody'
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scenario 5: Upcoming Liabilities & Scheduled Reminders - 02 Innovation Lab</title>
+  <link rel="stylesheet" href="css/whatsapp.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <nav class="portal-navbar">
+    <a href="index.html" class="brand-wrapper">
+      <img src="assets/logo.jpg" alt="02 Innovation Lab" class="brand-logo">
+      <div class="brand-title-group">
+        <h1>02 Innovation Lab</h1>
+        <div class="brand-subtitle">WhatsApp Accounting Bot Prototype</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-pill">🏠 All Scenarios</a>
+      <a href="scenario1.html" class="nav-pill">⚡ Scenario 1</a>
+      <a href="scenario2.html" class="nav-pill">📊 Scenario 2</a>
+      <a href="scenario3.html" class="nav-pill">⚠️ Scenario 3</a>
+      <a href="scenario4.html" class="nav-pill">⏰ Scenario 4</a>
+      <a href="scenario5.html" class="nav-pill active">🔔 Scenario 5 <span class="badge">Upcoming Payments</span></a>
+    </div>
+  </nav>
+
+  <!-- Prototype Workspace -->
+  <div class="prototype-container">
+    
+    <!-- Mobile Phone Mockup Frame -->
+    <div class="phone-mockup-wrapper">
+      <div class="phone-island">
+        <div class="island-camera"></div>
+        <div class="island-sensor"></div>
+      </div>
+
+      <div class="phone-screen">
+        <!-- Status Bar -->
+        <div class="phone-statusbar">
+          <span>08:45</span>
+          <div class="statusbar-icons">
+            <span>5G</span>
+            <span>📶</span>
+            <span>100% 🔋</span>
+          </div>
+        </div>
+
+        <!-- WhatsApp Chat Header -->
+        <div class="wa-chat-header">
+          <div class="wa-header-left">
+            <span class="wa-back-btn">‹</span>
+            <div class="wa-avatar-box">
+              <img src="assets/logo.jpg" alt="02 Bot" class="wa-avatar">
+            </div>
+            <div class="wa-contact-info">
+              <div class="wa-contact-name">
+                02 Innovation Lab
+                <span class="wa-verified-badge">✓</span>
+              </div>
+              <div class="wa-contact-status">
+                <span class="status-dot"></span>
+                Payables & Cashflow Sentinel
+              </div>
+            </div>
+          </div>
+          <div class="wa-header-actions">
+            <button class="wa-icon-btn" title="Video Call">📹</button>
+            <button class="wa-icon-btn" title="Voice Call">📞</button>
+            <button class="wa-icon-btn" title="More Options">⋮</button>
+          </div>
+        </div>
+
+        <!-- Chat Conversation Messages -->
+        <div class="wa-chat-body" id="chatBody">
+          <div class="wa-date-divider">Today</div>
+          <div class="wa-security-note">
+            🔔 Scheduled Recurring Liabilities & Payables Alert
+          </div>
+
+          <!-- Typing Indicator -->
+          <div class="wa-typing-indicator" id="typingIndicator" style="display: none;">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+          </div>
+        </div>
+
+        <!-- Interactive Input Bar -->
+        <div class="wa-chat-footer">
+          <div class="wa-input-pill">
+            <span class="wa-input-icon">😊</span>
+            <input type="text" id="chatInput" placeholder="Mark paid or reschedule liabilities..." />
+            <span class="wa-input-icon" title="Attachment">📎</span>
+            <span class="wa-input-icon" title="Camera">📷</span>
+          </div>
+          <button class="wa-mic-btn" id="sendBtn" title="Send message">➤</button>
+        </div>
+
+        <!-- Bottom Home Indicator -->
+        <div class="phone-home-indicator">
+          <div class="home-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Developer & Stakeholder Inspector Panel -->
+    <div class="dev-showcase-panel">
+      <div class="scenario-header">
+        <div class="scenario-title-area">
+          <h2>
+            <span>Scenario 5: Upcoming Payables & Scheduled Liabilities Alert</span>
+            <span class="scenario-tag">Cashflow Protection</span>
+          </h2>
+          <p class="scenario-desc">
+            Demonstrates recurring expense scheduling (Salaries, Tax clearance, utilities), automated pre-due notifications, and batch reconciliation links to ensure zero missed business compliance deadlines.
+          </p>
+        </div>
+      </div>
+
+      <!-- Playback Controls -->
+      <div class="control-bar">
+        <button class="control-btn primary" id="btnPlay">▶️ Auto-Play</button>
+        <button class="control-btn" id="btnNext">⏭️ Next Step</button>
+        <button class="control-btn" id="btnComplete">⚡ Show All</button>
+        <button class="control-btn" id="btnReset">🔄 Reset</button>
+        <button class="control-btn" id="btnThemeToggle">🌙 Dark Mode</button>
+        <span class="progress-indicator" id="stepCounter">Step 0 of 1</span>
+      </div>
+
+      <!-- Developer Specs Tabs -->
+      <div class="dev-tabs-header">
+        <button class="dev-tab-btn active" data-tab="tab-overview">📅 Scheduled Liabilities</button>
+        <button class="dev-tab-btn" data-tab="tab-webhook">⚡ Webhook Notification</button>
+        <button class="dev-tab-btn" data-tab="tab-database">🗄️ Payables DB Table</button>
+        <button class="dev-tab-btn" data-tab="tab-nlp">🧠 Recurring Logic</button>
+      </div>
+
+      <!-- Tab 1: Scheduled Liabilities -->
+      <div class="dev-tab-content active" id="tab-overview">
+        <div class="entity-grid">
+          <div class="entity-card">
+            <div class="entity-label">Payroll Salaries</div>
+            <div class="entity-val" style="color: #ef4444;">₦123,999.00</div>
+            <div class="entity-note">Due: In 3 Days (Sep 25) • Staff Stipends & Interns</div>
+          </div>
+          <div class="entity-card">
+            <div class="entity-label">Statutory Tax Clearance</div>
+            <div class="entity-val" style="color: #ef4444;">₦390,000.00</div>
+            <div class="entity-note">Due: In 5 Days (Sep 28) • FIRS / State Tax Remittance</div>
+          </div>
+          <div class="entity-card">
+            <div class="entity-label">Total Outflow Needed</div>
+            <div class="entity-val" style="color: #f59e0b;">₦513,999.00</div>
+            <div class="entity-note">Current Bank Balance: ₦36.9M (100% Covered)</div>
+          </div>
+          <div class="entity-card">
+            <div class="entity-label">Centralized Reminder URL</div>
+            <div class="entity-val">/reminder/all/...</div>
+            <div class="entity-note">Direct URL to manage and configure all alerts</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Webhook Notification -->
+      <div class="dev-tab-content" id="tab-webhook">
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>UPCOMING_PAYMENTS_PAYLOAD.json</span>
+          </div>
+          <div class="code-content">{
+  "messaging_product": "whatsapp",
+  "to": "2348031234567",
+  "type": "interactive",
+  "interactive": {
+    "type": "list",
+    "header": {
+      "type": "text",
+      "text": "Upcoming Payment Alerts"
+    },
+    "body": {
+      "text": "You have upcoming payments based on reminders you set:\n\n• Salaries: ₦123,999\n• Tax clearance: ₦390,000\n\nManage all reminders here: chatadmin.02innovationslab.com/reminder/all/..."
+    },
+    "action": {
+      "button": "Manage Liabilities",
+      "sections": [
+        {
+          "title": "Upcoming Actions",
+          "rows": [
+            { "id": "pay_salaries", "title": "Mark Salaries Paid", "description": "₦123,999" },
+            { "id": "pay_tax", "title": "Mark Tax Remitted", "description": "₦390,000" },
+            { "id": "view_all", "title": "Open Portal", "description": "View all reminders" }
+          ]
+        }
+      ]
+    }
+  }
+}</div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Payables DB Table -->
+      <div class="dev-tab-content" id="tab-database">
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>SCHEDULED_PAYABLES.sql</span>
+          </div>
+          <div class="code-content">CREATE TABLE recurring_payables (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  company_id VARCHAR(50) NOT NULL,
+  title VARCHAR(150) NOT NULL,
+  amount DECIMAL(12,2) NOT NULL,
+  frequency ENUM('ONCE', 'MONTHLY', 'QUARTERLY', 'ANNUAL') DEFAULT 'MONTHLY',
+  due_date DATE NOT NULL,
+  alert_days_before INT DEFAULT 5,
+  status ENUM('PENDING', 'PAID', 'SKIPPED') DEFAULT 'PENDING'
+);
+
+-- Query upcoming payments due in next 7 days
+SELECT * FROM recurring_payables
+WHERE status = 'PENDING'
+  AND due_date BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 7 DAY);</div>
+        </div>
+      </div>
+
+      <!-- Tab 4: Recurring Logic -->
+      <div class="dev-tab-content" id="tab-nlp">
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>AUTOMATION_SPEC.md</span>
+          </div>
+          <div class="code-content">Execution Logic:
+1. Daily Daemon at 08:00 AM checks `recurring_payables` where `due_date <= CURDATE() + alert_days_before`.
+2. Consolidates all pending items into a single WhatsApp notification message.
+3. Automatically attaches deep-link with single-sign-on token to `chatadmin.02innovationslab.com/reminder/all/`.
+4. If marked as paid via bot or portal, an `EXPENSE` transaction is automatically generated in the general ledger.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/chat-engine.js"></script>
+  <script>
+    const scenario5Messages = [
+      {
+        sender: 'bot',
+        type: 'text',
+        text: `🔔 You have upcoming payments based on reminders you set:<br><br>• <strong>Salaries:</strong> ₦123,999 (Due in 3 days)<br>• <strong>Tax clearance:</strong> ₦390,000 (Due in 5 days)<br><br>Manage all reminders here: <a href="https://chatadmin.02innovationslab.com/reminder/all/upcoming" target="_blank" class="wa-link">chatadmin.02innovationslab.com/reminder/all/...</a>`,
+        actions: [
+          { label: '💳 Mark Salaries Paid (₦123,999)', onClick: "alert('Salaries marked as disbursed and logged into Expense ledger.')" },
+          { label: '🏛️ Mark Tax Clearance Paid (₦390,000)', onClick: "alert('Tax clearance marked as paid.')" },
+          { label: '⚙️ Manage All Reminders & Due Dates', url: 'https://chatadmin.02innovationslab.com/reminder/all/manage' }
+        ],
+        time: '8:45 AM'
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      window.engine = new ChatPrototypeEngine({
+        scenarioId: 'scenario5',
+        messages: scenario5Messages,
+        containerId: 'chatBody'
+      });
+    });
+  </script>
+</body>
+</html>

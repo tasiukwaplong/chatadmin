@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scenario 1: Multi-Transaction Logging & OCR Receipt Scan - 02 Innovation Lab</title>
+  <link rel="stylesheet" href="css/whatsapp.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <nav class="portal-navbar">
+    <a href="index.html" class="brand-wrapper">
+      <img src="assets/logo.jpg" alt="02 Innovation Lab" class="brand-logo">
+      <div class="brand-title-group">
+        <h1>02 Innovation Lab</h1>
+        <div class="brand-subtitle">WhatsApp Accounting Bot Prototype</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-pill">🏠 All Scenarios</a>
+      <a href="scenario1.html" class="nav-pill active">⚡ Scenario 1 <span class="badge">Multi-Tx & OCR</span></a>
+      <a href="scenario2.html" class="nav-pill">📊 Scenario 2</a>
+      <a href="scenario3.html" class="nav-pill">⚠️ Scenario 3</a>
+      <a href="scenario4.html" class="nav-pill">⏰ Scenario 4</a>
+      <a href="scenario5.html" class="nav-pill">🔔 Scenario 5</a>
+    </div>
+  </nav>
+
+  <!-- Prototype Workspace -->
+  <div class="prototype-container">
+    
+    <!-- Mobile Phone Mockup Frame -->
+    <div class="phone-mockup-wrapper">
+      <div class="phone-island">
+        <div class="island-camera"></div>
+        <div class="island-sensor"></div>
+      </div>
+
+      <div class="phone-screen">
+        <!-- Status Bar -->
+        <div class="phone-statusbar">
+          <span>10:48</span>
+          <div class="statusbar-icons">
+            <span>5G</span>
+            <span>📶</span>
+            <span>98% 🔋</span>
+          </div>
+        </div>
+
+        <!-- WhatsApp Chat Header -->
+        <div class="wa-chat-header">
+          <div class="wa-header-left">
+            <span class="wa-back-btn">‹</span>
+            <div class="wa-avatar-box">
+              <img src="assets/logo.jpg" alt="02 Bot" class="wa-avatar">
+            </div>
+            <div class="wa-contact-info">
+              <div class="wa-contact-name">
+                02 Innovation Lab
+                <span class="wa-verified-badge">✓</span>
+              </div>
+              <div class="wa-contact-status">
+                <span class="status-dot"></span>
+                Official Business Bot
+              </div>
+            </div>
+          </div>
+          <div class="wa-header-actions">
+            <button class="wa-icon-btn" title="Video Call">📹</button>
+            <button class="wa-icon-btn" title="Voice Call">📞</button>
+            <button class="wa-icon-btn" title="More Options">⋮</button>
+          </div>
+        </div>
+
+        <!-- Chat Conversation Messages -->
+        <div class="wa-chat-body" id="chatBody">
+          <div class="wa-date-divider">August 13, 2026</div>
+          <div class="wa-security-note">
+            🔒 Messages and calls are end-to-end encrypted. Connected to 02 Financial Accounting Engine.
+          </div>
+
+          <!-- Typing Indicator Template (hidden initially) -->
+          <div class="wa-typing-indicator" id="typingIndicator" style="display: none;">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+          </div>
+        </div>
+
+        <!-- Interactive Input Bar -->
+        <div class="wa-chat-footer">
+          <div class="wa-input-pill">
+            <span class="wa-input-icon">😊</span>
+            <input type="text" id="chatInput" placeholder="Type a message or paste receipt..." />
+            <span class="wa-input-icon" onclick="document.getElementById('fileUploadSim').click()" title="Attach Receipt">📎</span>
+            <span class="wa-input-icon" onclick="openReceiptModal('assets/receipt.jpg')" title="Camera">📷</span>
+            <input type="file" id="fileUploadSim" style="display:none" onchange="alert('Receipt uploaded: Processing AI OCR Scan...')" />
+          </div>
+          <button class="wa-mic-btn" id="sendBtn" title="Send message">➤</button>
+        </div>
+
+        <!-- Bottom Home Indicator -->
+        <div class="phone-home-indicator">
+          <div class="home-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Developer & Stakeholder Inspector Panel -->
+    <div class="dev-showcase-panel">
+      <div class="scenario-header">
+        <div class="scenario-title-area">
+          <h2>
+            <span>Scenario 1: Multi-Transaction & OCR Scan</span>
+            <span class="scenario-tag">Core Accounting</span>
+          </h2>
+          <p class="scenario-desc">
+            Demonstrates NLP extraction of complex compound messages (multi-item expenses, split income with partial payment and debt balance scheduling) followed by instant OCR camera/receipt document parsing.
+          </p>
+        </div>
+      </div>
+
+      <!-- Playback Controls -->
+      <div class="control-bar">
+        <button class="control-btn primary" id="btnPlay">▶️ Auto-Play</button>
+        <button class="control-btn" id="btnNext">⏭️ Next Step</button>
+        <button class="control-btn" id="btnComplete">⚡ Show All</button>
+        <button class="control-btn" id="btnReset">🔄 Reset</button>
+        <button class="control-btn" id="btnThemeToggle">🌙 Dark Mode</button>
+        <span class="progress-indicator" id="stepCounter">Step 0 of 4</span>
+      </div>
+
+      <!-- Developer Specs Tabs -->
+      <div class="dev-tabs-header">
+        <button class="dev-tab-btn active" data-tab="tab-overview">📋 Extraction Breakdown</button>
+        <button class="dev-tab-btn" data-tab="tab-webhook">⚡ Webhook Payload (JSON)</button>
+        <button class="dev-tab-btn" data-tab="tab-database">🗄️ Database Schema & SQL</button>
+        <button class="dev-tab-btn" data-tab="tab-nlp">🧠 NLP / Prompt Logic</button>
+      </div>
+
+      <!-- Tab 1: Extraction Breakdown -->
+      <div class="dev-tab-content active" id="tab-overview">
+        <div class="entity-grid">
+          <div class="entity-card">
+            <div class="entity-label">Parsed Expense #1</div>
+            <div class="entity-val">₦56,000.00</div>
+            <div class="entity-note">Starlink Subscription • Date: 11 Aug 2026 • Category: Internet/Ops</div>
+          </div>
+          <div class="entity-card">
+            <div class="entity-label">Parsed Part-Income #2</div>
+            <div class="entity-val">₦50,000.00 Received</div>
+            <div class="entity-note">Payer: Mr. Amos • Class on Data Analysis • Date: 13 Aug 2026</div>
+          </div>
+          <div class="entity-card">
+            <div class="entity-label">Auto-Created Debt Record</div>
+            <div class="entity-val">₦40,000.00 Balance Due</div>
+            <div class="entity-note">Customer: Mr. Amos • Due Date: 20 Aug 2026 • Status: Pending Reminder</div>
+          </div>
+          <div class="entity-card">
+            <div class="entity-label">OCR Receipt Scan</div>
+            <div class="entity-val">₦30,000.00 Extracted</div>
+            <div class="entity-note">Payer: Mr. John • Course: Data Analysis • Confidence: 99.1%</div>
+          </div>
+        </div>
+
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>PARSED_ENTITIES_STRUCTURE.json</span>
+            <button class="control-btn" style="padding: 2px 8px; font-size: 0.7rem;" onclick="copyCode('entityCode')">📋 Copy</button>
+          </div>
+          <div class="code-content" id="entityCode">{
+  "session_id": "wa-user-08029384912",
+  "company_id": "02_INNOVATION_LAB",
+  "compound_entries": [
+    {
+      "type": "EXPENSE",
+      "amount": 56000.00,
+      "currency": "NGN",
+      "category": "Utilities & Connectivity",
+      "vendor": "Starlink",
+      "transaction_date": "2026-08-11",
+      "status": "CONFIRMED"
+    },
+    {
+      "type": "INCOME_SPLIT",
+      "amount_received": 50000.00,
+      "currency": "NGN",
+      "category": "Tuition / Training Services",
+      "customer_name": "Mr. Amos",
+      "service_description": "Class on Data Analysis",
+      "transaction_date": "2026-08-13",
+      "receivable_balance": 40000.00,
+      "balance_due_date": "2026-08-20",
+      "auto_schedule_debt_reminder": true
+    }
+  ],
+  "ocr_scan_result": {
+    "amount": 30000.00,
+    "sender": "Mr. John",
+    "description": "Payment for Data analysis for Mr. John",
+    "date": "2025-10-23",
+    "confidence_score": 0.991
+  }
+}</div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Webhook JSON -->
+      <div class="dev-tab-content" id="tab-webhook">
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>POST https://chatadmin.02innovationslab.com/api/webhook/whatsapp</span>
+          </div>
+          <div class="code-content">{
+  "object": "whatsapp_business_account",
+  "entry": [
+    {
+      "id": "WHATSAPP_BUSINESS_ACCOUNT_ID",
+      "changes": [
+        {
+          "value": {
+            "messaging_product": "whatsapp",
+            "metadata": {
+              "display_phone_number": "+23480002INNOVATE",
+              "phone_number_id": "109829384912837"
+            },
+            "contacts": [
+              {
+                "profile": { "name": "Admin / Accountant" },
+                "wa_id": "2348031234567"
+              }
+            ],
+            "messages": [
+              {
+                "from": "2348031234567",
+                "id": "wamid.HBgLMjM0ODAzMTIzNDU2NxUCABEYEjA4MjE5Mzg=",
+                "timestamp": "1786618080",
+                "text": {
+                  "body": "Payment for starlink on 11th August 2026: 56,000\nReceived payment for class on datanalysis from Mr. Amos on 13th August 2026(part payment to settle balance of N40,000 on 20th August 2026): 50,000"
+                },
+                "type": "text"
+              }
+            ]
+          },
+          "field": "messages"
+        }
+      ]
+    }
+  ]
+}</div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Database Schema -->
+      <div class="dev-tab-content" id="tab-database">
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>MySQL_SCHEMA_&_INSERT.sql</span>
+          </div>
+          <div class="code-content">-- 1. Insert Expenses
+INSERT INTO transactions (company_id, type, amount, currency, category, description, transaction_date, source)
+VALUES ('02_LAB', 'EXPENSE', 56000.00, 'NGN', 'Internet', 'Payment for starlink', '2026-08-11', 'WHATSAPP_BOT');
+
+-- 2. Insert Income
+INSERT INTO transactions (company_id, type, amount, currency, category, customer_name, description, transaction_date, source)
+VALUES ('02_LAB', 'INCOME', 50000.00, 'NGN', 'Training', 'Mr. Amos', 'Class on Data Analysis (Part Payment)', '2026-08-13', 'WHATSAPP_BOT');
+
+-- 3. Auto-Insert Scheduled Debt / Receivable
+INSERT INTO debts_receivables (customer_name, amount_due, due_date, related_service, status, reminder_status)
+VALUES ('Mr. Amos', 40000.00, '2026-08-20', 'Balance for Data Analysis Class', 'UNPAID', 'SCHEDULED');</div>
+        </div>
+      </div>
+
+      <!-- Tab 4: NLP Rules -->
+      <div class="dev-tab-content" id="tab-nlp">
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>SYSTEM_ACCOUNTING_PROMPT.txt</span>
+          </div>
+          <div class="code-content">You are the 02 Innovation Lab WhatsApp Financial Accounting Assistant.
+Your task is to parse unstructured Nigerian financial text and image receipts.
+
+RULES:
+1. Extract multiple transactions if separated by newlines or conjunctions.
+2. Distinguish EXPENSE from INCOME based on keywords ("Payment for" vs "Received payment from").
+3. Detect partial payments: If balance is mentioned ("part payment to settle balance of N40,000 on [Date]"), create both an INCOME transaction and an active DEBT reminder record with the due date.
+4. Convert date expressions into ISO format (YYYY-MM-DD). Default currency is NGN (₦).
+5. For image OCR, extract Sender, Recipient, Amount, Description, and Date. Return formatted summary with deep link.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Image Receipt Modal -->
+  <div class="modal-backdrop" id="imageModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">📷 Uploaded Receipt Document - OCR Scan</div>
+        <button class="modal-close" id="modalClose">✕</button>
+      </div>
+      <div class="modal-body">
+        <img src="assets/receipt.jpg" alt="Bank Receipt" id="modalImg" class="modal-img">
+        <div style="font-size: 0.85rem; color: #9ca3af; text-align: center;">
+          ✅ Verified: <strong>Mr. John</strong> paid <strong>₦30,000.00</strong> to <strong>02 Innovation Lab</strong> on <strong>23/Oct/2025</strong> for <em>Data analysis</em>.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/chat-engine.js"></script>
+  <script>
+    const scenario1Messages = [
+      {
+        sender: 'me',
+        type: 'text',
+        text: `Payment for starlink on 11th August 2026: 56,000<br>Received payment for class on datanalysis from Mr. Amos on 13th August 2026(part payment to settle balance of N40,000 on 20th August 2026): 50,000`,
+        time: '10:48 AM'
+      },
+      {
+        sender: 'bot',
+        type: 'text',
+        text: `Noted. This has been recorded. ✅<br><br>• <strong>Expense:</strong> ₦56,000 (Starlink - 11 Aug 2026)<br>• <strong>Income:</strong> ₦50,000 (Mr. Amos - Data Analysis)<br>• <strong>Balance Due:</strong> ₦40,000 (Scheduled for 20 Aug 2026 ⏰)<br><br>Manage records here: <a href="https://chatadmin.02innovationslab.com/records/manage/txn-20260813-8942" target="_blank" class="wa-link">chatadmin.02innovationslab.com/records/manage/...</a>`,
+        time: '10:48 AM',
+        actions: [
+          { label: '📊 View Ledger Breakdown', url: 'https://chatadmin.02innovationslab.com/records/manage/txn-20260813-8942' },
+          { label: '⏰ Check Debt Reminder for Mr. Amos', url: 'https://chatadmin.02innovationslab.com/debt/amos40k' }
+        ]
+      },
+      {
+        sender: 'me',
+        type: 'image',
+        imageSrc: 'assets/receipt.jpg',
+        caption: `[Uploaded payment receipt document carrying amount and description]`,
+        time: '10:50 AM'
+      },
+      {
+        sender: 'bot',
+        type: 'text',
+        text: `From uploaded document, this is what I got: 🔍<br><br>• <strong>Amount:</strong> ₦30,000<br>• <strong>Description:</strong> Payment for Data analysis for Mr. John<br>• <strong>Date:</strong> 23/October/2025<br>• <strong>Recipient:</strong> 02 Innovation Lab`,
+        time: '10:50 AM',
+        actions: [
+          { label: '✅ Confirm & Post to Books', onClick: "alert('Transaction ₦30,000 for Mr. John confirmed and posted to ledger!')" },
+          { label: '✏️ Edit Scanned Fields', onClick: "alert('Opening edit form...')" }
+        ]
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      window.engine = new ChatPrototypeEngine({
+        scenarioId: 'scenario1',
+        messages: scenario1Messages,
+        containerId: 'chatBody'
+      });
+    });
+  </script>
+</body>
+</html>

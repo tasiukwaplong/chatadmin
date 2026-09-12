@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scenario 4: Customer Debt Reminder & Follow-Up - 02 Innovation Lab</title>
+  <link rel="stylesheet" href="css/whatsapp.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <nav class="portal-navbar">
+    <a href="index.html" class="brand-wrapper">
+      <img src="assets/logo.jpg" alt="02 Innovation Lab" class="brand-logo">
+      <div class="brand-title-group">
+        <h1>02 Innovation Lab</h1>
+        <div class="brand-subtitle">WhatsApp Accounting Bot Prototype</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-pill">🏠 All Scenarios</a>
+      <a href="scenario1.html" class="nav-pill">⚡ Scenario 1</a>
+      <a href="scenario2.html" class="nav-pill">📊 Scenario 2</a>
+      <a href="scenario3.html" class="nav-pill">⚠️ Scenario 3</a>
+      <a href="scenario4.html" class="nav-pill active">⏰ Scenario 4 <span class="badge">Debt Reminder</span></a>
+      <a href="scenario5.html" class="nav-pill">🔔 Scenario 5</a>
+    </div>
+  </nav>
+
+  <!-- Prototype Workspace -->
+  <div class="prototype-container">
+    
+    <!-- Mobile Phone Mockup Frame -->
+    <div class="phone-mockup-wrapper">
+      <div class="phone-island">
+        <div class="island-camera"></div>
+        <div class="island-sensor"></div>
+      </div>
+
+      <div class="phone-screen">
+        <!-- Status Bar -->
+        <div class="phone-statusbar">
+          <span>09:30</span>
+          <div class="statusbar-icons">
+            <span>5G</span>
+            <span>📶</span>
+            <span>94% 🔋</span>
+          </div>
+        </div>
+
+        <!-- WhatsApp Chat Header -->
+        <div class="wa-chat-header">
+          <div class="wa-header-left">
+            <span class="wa-back-btn">‹</span>
+            <div class="wa-avatar-box">
+              <img src="assets/logo.jpg" alt="02 Bot" class="wa-avatar">
+            </div>
+            <div class="wa-contact-info">
+              <div class="wa-contact-name">
+                02 Innovation Lab
+                <span class="wa-verified-badge">✓</span>
+              </div>
+              <div class="wa-contact-status">
+                <span class="status-dot"></span>
+                Receivables & Collections Bot
+              </div>
+            </div>
+          </div>
+          <div class="wa-header-actions">
+            <button class="wa-icon-btn" title="Video Call">📹</button>
+            <button class="wa-icon-btn" title="Voice Call">📞</button>
+            <button class="wa-icon-btn" title="More Options">⋮</button>
+          </div>
+        </div>
+
+        <!-- Chat Conversation Messages -->
+        <div class="wa-chat-body" id="chatBody">
+          <div class="wa-date-divider">Yesterday</div>
+          <div class="wa-security-note">
+            ⏰ Automated Debt Follow-Up & Receivables Scheduler
+          </div>
+
+          <!-- Typing Indicator -->
+          <div class="wa-typing-indicator" id="typingIndicator" style="display: none;">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+          </div>
+        </div>
+
+        <!-- Interactive Input Bar -->
+        <div class="wa-chat-footer">
+          <div class="wa-input-pill">
+            <span class="wa-input-icon">😊</span>
+            <input type="text" id="chatInput" placeholder="Reply to update debt status..." />
+            <span class="wa-input-icon" title="Attachment">📎</span>
+            <span class="wa-input-icon" title="Camera">📷</span>
+          </div>
+          <button class="wa-mic-btn" id="sendBtn" title="Send message">➤</button>
+        </div>
+
+        <!-- Bottom Home Indicator -->
+        <div class="phone-home-indicator">
+          <div class="home-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Developer & Stakeholder Inspector Panel -->
+    <div class="dev-showcase-panel">
+      <div class="scenario-header">
+        <div class="scenario-title-area">
+          <h2>
+            <span>Scenario 4: Customer Debt Reminder & Follow-Up Automation</span>
+            <span class="scenario-tag">Receivables Management</span>
+          </h2>
+          <p class="scenario-desc">
+            Demonstrates automated customer credit tracking, proactive WhatsApp notifications triggered 24 hours prior to receivable due dates, direct deep linking to debt settlement portals, and automated conversational acknowledgement.
+          </p>
+        </div>
+      </div>
+
+      <!-- Playback Controls -->
+      <div class="control-bar">
+        <button class="control-btn primary" id="btnPlay">▶️ Auto-Play</button>
+        <button class="control-btn" id="btnNext">⏭️ Next Step</button>
+        <button class="control-btn" id="btnComplete">⚡ Show All</button>
+        <button class="control-btn" id="btnReset">🔄 Reset</button>
+        <button class="control-btn" id="btnThemeToggle">🌙 Dark Mode</button>
+        <span class="progress-indicator" id="stepCounter">Step 0 of 3</span>
+      </div>
+
+      <!-- Developer Specs Tabs -->
+      <div class="dev-tabs-header">
+        <button class="dev-tab-btn active" data-tab="tab-overview">📋 Debt Meta</button>
+        <button class="dev-tab-btn" data-tab="tab-webhook">⚡ Outbound Notification API</button>
+        <button class="dev-tab-btn" data-tab="tab-database">🗄️ Receivables Schema</button>
+        <button class="dev-tab-btn" data-tab="tab-nlp">🧠 Status Lifecycle</button>
+      </div>
+
+      <!-- Tab 1: Debt Meta -->
+      <div class="dev-tab-content active" id="tab-overview">
+        <div class="entity-grid">
+          <div class="entity-card">
+            <div class="entity-label">Customer ID</div>
+            <div class="entity-val">user34 (Mr. Amos)</div>
+            <div class="entity-note">Data Analysis Training Balance</div>
+          </div>
+          <div class="entity-card">
+            <div class="entity-label">Outstanding Amount</div>
+            <div class="entity-val" style="color: #f59e0b;">₦40,000.00</div>
+            <div class="entity-note">Initial fee: ₦90k • Paid: ₦50k</div>
+          </div>
+          <div class="entity-card">
+            <div class="entity-label">Call Reminder Time</div>
+            <div class="entity-val">Tomorrow, 12:00 PM</div>
+            <div class="entity-note">Pre-alert trigger scheduled at 11:30 AM</div>
+          </div>
+          <div class="entity-card">
+            <div class="entity-label">Direct Settlement Link</div>
+            <div class="entity-val">/debt/user34/...</div>
+            <div class="entity-note">Enables 1-click status update or reminder snooze</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Outbound API -->
+      <div class="dev-tab-content" id="tab-webhook">
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>DEBT_ALERT_DISPATCH.json</span>
+          </div>
+          <div class="code-content">{
+  "messaging_product": "whatsapp",
+  "to": "2348031234567",
+  "type": "template",
+  "template": {
+    "name": "debt_collection_reminder",
+    "language": { "code": "en" },
+    "components": [
+      {
+        "type": "body",
+        "parameters": [
+          { "type": "text", "text": "12pm tomorrow" },
+          { "type": "text", "text": "Mr. Amos (₦40,000)" },
+          { "type": "text", "text": "chatadmin.02innovationslab.com/debt/user34/settle" }
+        ]
+      }
+    ]
+  }
+}</div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Receivables Schema -->
+      <div class="dev-tab-content" id="tab-database">
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>DEBT_MANAGEMENT_TABLE.sql</span>
+          </div>
+          <div class="code-content">CREATE TABLE debts_receivables (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  customer_id VARCHAR(50) NOT NULL,
+  customer_name VARCHAR(150) NOT NULL,
+  amount_due DECIMAL(12,2) NOT NULL,
+  due_date DATETIME NOT NULL,
+  reminder_time DATETIME NOT NULL,
+  status ENUM('PENDING', 'PARTIAL', 'SETTLED', 'WRITTEN_OFF') DEFAULT 'PENDING',
+  last_notified_at DATETIME,
+  notes TEXT,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);</div>
+        </div>
+      </div>
+
+      <!-- Tab 4: Status Lifecycle -->
+      <div class="dev-tab-content" id="tab-nlp">
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>STATE_TRANSITION_LOGIC.md</span>
+          </div>
+          <div class="code-content">State Transition:
+1. PENDING (Reminder Scheduled: 24h prior to 12pm)
+2. BOT_ALERT_SENT (Triggered WhatsApp message with action buttons)
+3. USER_ACTION:
+   - "Mark as Paid": Updates status to SETTLED, posts ₦40,000 to Income table.
+   - "Snooze 3 Days": Updates reminder_time = NOW() + INTERVAL 3 DAY.
+   - "Partial Settlement": Prompts for amount paid and recalculates remaining balance.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/chat-engine.js"></script>
+  <script>
+    const scenario4Messages = [
+      {
+        sender: 'bot',
+        type: 'text',
+        text: `⏰ You have debt reminder to reach out to customer by <strong>12pm tomorrow</strong>.<br><br>Customer: <strong>Mr. Amos</strong><br>Balance Due: <strong>₦40,000</strong><br><br>Please don't forget to update the status of the debt or set a new reminder for the debt.<br>Use this link: <a href="https://chatadmin.02innovationslab.com/debt/user34/manage" target="_blank" class="wa-link">chatadmin.02innovationslab.com/debt/user34/...</a>`,
+        actions: [
+          { label: '✅ Mark Debt as Paid (₦40,000)', onClick: "alert('Status updated: Mr. Amos marked as FULLY PAID! Income ledger updated.')" },
+          { label: '⏳ Snooze Reminder (3 Days)', onClick: "alert('Reminder postponed to 3 days later.')" },
+          { label: '📞 Call Customer (+23480...)', url: 'https://chatadmin.02innovationslab.com/debt/user34/contact' }
+        ],
+        time: '9:30 AM'
+      },
+      {
+        sender: 'me',
+        type: 'text',
+        text: `Thank you`,
+        time: '9:32 AM'
+      },
+      {
+        sender: 'bot',
+        type: 'text',
+        text: `You're welcome! I will notify you again tomorrow at 11:30 AM before the scheduled 12:00 PM follow-up. 👍`,
+        time: '9:32 AM'
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      window.engine = new ChatPrototypeEngine({
+        scenarioId: 'scenario4',
+        messages: scenario4Messages,
+        containerId: 'chatBody'
+      });
+    });
+  </script>
+</body>
+</html>

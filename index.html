@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02 Innovation Lab - WhatsApp Accounting Chatbot Prototype Suite</title>
+  <link rel="stylesheet" href="css/whatsapp.css">
+  <style>
+    .hub-hero {
+      text-align: center;
+      padding: 2.5rem 1rem 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .hub-hero h1 {
+      font-size: 2.3rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(135deg, #ffffff 40%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hub-hero p {
+      font-size: 1.05rem;
+      color: var(--portal-text-muted);
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .scenario-card {
+      background: var(--portal-card-bg);
+      border: 1px solid var(--portal-card-border);
+      border-radius: 16px;
+      padding: 1.35rem;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scenario-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(6, 182, 212, 0.4);
+      box-shadow: 0 12px 30px rgba(6, 182, 212, 0.15);
+    }
+
+    .scenario-card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--portal-accent);
+      background: rgba(6, 182, 212, 0.12);
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      width: fit-content;
+      margin-bottom: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .scenario-card h3 {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.45rem;
+    }
+
+    .scenario-card p {
+      font-size: 0.82rem;
+      color: var(--portal-text-muted);
+      line-height: 1.45;
+      margin-bottom: 1.1rem;
+      flex: 1;
+    }
+
+    .scenario-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--portal-accent);
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .scenario-quick-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-pill-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--portal-text-muted);
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab-pill-btn.active, .tab-pill-btn:hover {
+      background: var(--portal-accent);
+      color: #000000;
+      border-color: var(--portal-accent);
+      font-weight: 700;
+      box-shadow: 0 0 15px var(--portal-accent-glow);
+    }
+
+    .tech-architecture-section {
+      margin-top: 3rem;
+      background: var(--portal-card-bg);
+      border: 1px solid var(--portal-card-border);
+      border-radius: 20px;
+      padding: 2rem;
+    }
+
+    .tech-architecture-section h2 {
+      font-size: 1.5rem;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <nav class="portal-navbar">
+    <a href="index.html" class="brand-wrapper">
+      <img src="assets/logo.jpg" alt="02 Innovation Lab" class="brand-logo">
+      <div class="brand-title-group">
+        <h1>02 Innovation Lab</h1>
+        <div class="brand-subtitle">WhatsApp Financial Accounting Engine</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-pill active">🏠 Master Portal</a>
+      <a href="scenario1.html" class="nav-pill">⚡ Scenario 1</a>
+      <a href="scenario2.html" class="nav-pill">📊 Scenario 2</a>
+      <a href="scenario3.html" class="nav-pill">⚠️ Scenario 3</a>
+      <a href="scenario4.html" class="nav-pill">⏰ Scenario 4</a>
+      <a href="scenario5.html" class="nav-pill">🔔 Scenario 5</a>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <div class="hub-hero">
+    <h1>WhatsApp Accounting Chatbot Prototype Suite</h1>
+    <p>
+      High-fidelity, interactive mobile prototypes and developer implementation specifications for <strong>02 Innovation Lab</strong>. Designed for zero-friction bookkeeping via WhatsApp Cloud API.
+    </p>
+  </div>
+
+  <!-- Interactive Live Mockup Section -->
+  <div class="prototype-container">
+    
+    <!-- Mobile Phone Mockup Frame -->
+    <div class="phone-mockup-wrapper">
+      <div class="phone-island">
+        <div class="island-camera"></div>
+        <div class="island-sensor"></div>
+      </div>
+
+      <div class="phone-screen">
+        <!-- Status Bar -->
+        <div class="phone-statusbar">
+          <span>10:48</span>
+          <div class="statusbar-icons">
+            <span>5G</span>
+            <span>📶</span>
+            <span>98% 🔋</span>
+          </div>
+        </div>
+
+        <!-- WhatsApp Chat Header -->
+        <div class="wa-chat-header">
+          <div class="wa-header-left">
+            <span class="wa-back-btn">‹</span>
+            <div class="wa-avatar-box">
+              <img src="assets/logo.jpg" alt="02 Bot" class="wa-avatar">
+            </div>
+            <div class="wa-contact-info">
+              <div class="wa-contact-name">
+                02 Innovation Lab
+                <span class="wa-verified-badge">✓</span>
+              </div>
+              <div class="wa-contact-status" id="botStatusText">
+                <span class="status-dot"></span>
+                Official Business Bot
+              </div>
+            </div>
+          </div>
+          <div class="wa-header-actions">
+            <button class="wa-icon-btn" title="Video Call">📹</button>
+            <button class="wa-icon-btn" title="Voice Call">📞</button>
+            <button class="wa-icon-btn" title="More Options">⋮</button>
+          </div>
+        </div>
+
+        <!-- Chat Conversation Messages -->
+        <div class="wa-chat-body" id="chatBody">
+          <div class="wa-date-divider" id="chatDateDivider">Today</div>
+          <div class="wa-security-note">
+            🔒 02 Financial Accounting Bot • End-to-End Encrypted Cloud Ledger
+          </div>
+
+          <!-- Typing Indicator -->
+          <div class="wa-typing-indicator" id="typingIndicator" style="display: none;">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+          </div>
+        </div>
+
+        <!-- Interactive Input Bar -->
+        <div class="wa-chat-footer">
+          <div class="wa-input-pill">
+            <span class="wa-input-icon">😊</span>
+            <input type="text" id="chatInput" placeholder="Try typing: Spent 15,000 for wifi..." />
+            <span class="wa-input-icon" onclick="openReceiptModal('assets/receipt.jpg')" title="Attach Receipt">📎</span>
+            <span class="wa-input-icon" onclick="openReceiptModal('assets/receipt.jpg')" title="Camera">📷</span>
+          </div>
+          <button class="wa-mic-btn" id="sendBtn" title="Send message">➤</button>
+        </div>
+
+        <!-- Bottom Home Indicator -->
+        <div class="phone-home-indicator">
+          <div class="home-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Scenario Switcher & Developer Specs -->
+    <div class="dev-showcase-panel">
+      
+      <!-- Scenario Selector Tabs -->
+      <div class="scenario-quick-tabs">
+        <button class="tab-pill-btn active" onclick="loadScenario(1, this)">Scenario 1 (Multi-Tx & OCR)</button>
+        <button class="tab-pill-btn" onclick="loadScenario(2, this)">Scenario 2 (Financial Status & PDF)</button>
+        <button class="tab-pill-btn" onclick="loadScenario(3, this)">Scenario 3 (Daily Prompt & Duplicate)</button>
+        <button class="tab-pill-btn" onclick="loadScenario(4, this)">Scenario 4 (Debt Reminder)</button>
+        <button class="tab-pill-btn" onclick="loadScenario(5, this)">Scenario 5 (Upcoming Payments)</button>
+      </div>
+
+      <div class="scenario-header">
+        <div class="scenario-title-area">
+          <h2 id="scenarioTitle">Scenario 1: Compound Transaction Logging & Receipt OCR</h2>
+          <p class="scenario-desc" id="scenarioDesc">
+            Demonstrates parsing expenses + partial income with auto-scheduled debt reminders, followed by an image receipt document scan with OCR extraction.
+          </p>
+        </div>
+      </div>
+
+      <!-- Playback Controls -->
+      <div class="control-bar">
+        <button class="control-btn primary" id="btnPlay">▶️ Auto-Play</button>
+        <button class="control-btn" id="btnNext">⏭️ Next Step</button>
+        <button class="control-btn" id="btnComplete">⚡ Show All</button>
+        <button class="control-btn" id="btnReset">🔄 Reset</button>
+        <button class="control-btn" id="btnThemeToggle">🌙 Dark Mode</button>
+        <span class="progress-indicator" id="stepCounter">Step 0 of 4</span>
+      </div>
+
+      <!-- Developer Specs Tabs -->
+      <div class="dev-tabs-header">
+        <button class="dev-tab-btn active" data-tab="tab-overview">📋 Extraction & Entities</button>
+        <button class="dev-tab-btn" data-tab="tab-webhook">⚡ Meta Cloud API Payload</button>
+        <button class="dev-tab-btn" data-tab="tab-database">🗄️ Database Architecture</button>
+        <button class="dev-tab-btn" data-tab="tab-nlp">🧠 Bot Prompt Engineering</button>
+      </div>
+
+      <!-- Tab 1: Entities -->
+      <div class="dev-tab-content active" id="tab-overview">
+        <div id="dynamicEntityGrid" class="entity-grid">
+          <!-- Populated dynamically based on selected scenario -->
+        </div>
+      </div>
+
+      <!-- Tab 2: Webhook -->
+      <div class="dev-tab-content" id="tab-webhook">
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>WEBHOOK_INBOUND_SAMPLE.json</span>
+            <button class="control-btn" style="padding: 2px 8px; font-size: 0.7rem;" onclick="copyCode('webhookJsonCode')">📋 Copy</button>
+          </div>
+          <div class="code-content" id="webhookJsonCode"></div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Database -->
+      <div class="dev-tab-content" id="tab-database">
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>SQL_TRANSACTION_ENGINE.sql</span>
+          </div>
+          <div class="code-content" id="databaseSqlCode"></div>
+        </div>
+      </div>
+
+      <!-- Tab 4: NLP -->
+      <div class="dev-tab-content" id="tab-nlp">
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>NLP_PARSER_CONFIG.txt</span>
+          </div>
+          <div class="code-content" id="nlpPromptCode"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Direct Standalone Prototype Screen Grid -->
+  <div style="max-width: 1540px; margin: 3rem auto 0; padding: 0 2rem;">
+    <h2 style="font-size: 1.5rem; color: #ffffff; margin-bottom: 0.5rem;">📁 Standalone Screen Prototypes</h2>
+    <p style="color: var(--portal-text-muted); font-size: 0.9rem;">Direct links to dedicated mobile screens for developer handoff and user testing:</p>
+
+    <div class="scenario-grid">
+      <!-- Card 1 -->
+      <a href="scenario1.html" class="scenario-card">
+        <span class="scenario-card-badge">⚡ Scenario 1</span>
+        <h3>Multi-Transaction & Receipt OCR</h3>
+        <p>Expense (Starlink: ₦56k) + Partial income (Mr. Amos: ₦50k with ₦40k balance due) + OCR image receipt scanning (₦30k).</p>
+        <div class="scenario-card-footer">
+          <span>Open Standalone Screen</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Card 2 -->
+      <a href="scenario2.html" class="scenario-card">
+        <span class="scenario-card-badge">📊 Scenario 2</span>
+        <h3>Financial Status & PDF Statement</h3>
+        <p>Instant financial query response with Debts (₦29k), Expenses (₦3.03M), Income (₦40M), summary.pdf attachment and web link.</p>
+        <div class="scenario-card-footer">
+          <span>Open Standalone Screen</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Card 3 -->
+      <a href="scenario3.html" class="scenario-card">
+        <span class="scenario-card-badge">⚠️ Scenario 3</span>
+        <h3>Daily Prompt & Duplicate Guard</h3>
+        <p>5:00 PM automated check-in, informal expense batch logging, and AI fuzzy duplicate detection alert for ₦29,000.</p>
+        <div class="scenario-card-footer">
+          <span>Open Standalone Screen</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Card 4 -->
+      <a href="scenario4.html" class="scenario-card">
+        <span class="scenario-card-badge">⏰ Scenario 4</span>
+        <h3>Customer Debt Reminder</h3>
+        <p>Proactive reminder for 12:00 PM tomorrow debt collection follow-up, settlement deep-link, and conversational reply confirmation.</p>
+        <div class="scenario-card-footer">
+          <span>Open Standalone Screen</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- Card 5 -->
+      <a href="scenario5.html" class="scenario-card">
+        <span class="scenario-card-badge">🔔 Scenario 5</span>
+        <h3>Upcoming Payments & Liabilities</h3>
+        <p>Pre-due reminders for Salaries (₦123,999), Tax clearance (₦390,000), and centralized reminder management dashboard.</p>
+        <div class="scenario-card-footer">
+          <span>Open Standalone Screen</span>
+          <span>→</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Technical Architecture & Developer Guide -->
+    <div class="tech-architecture-section">
+      <h2>🛠️ Developer Implementation Guide for 02 Innovation Lab</h2>
+      <p style="color: var(--portal-text-muted); margin-bottom: 1.5rem; font-size: 0.92rem;">
+        Key technical stack and integration workflow to implement these WhatsApp chatbot scenarios:
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+        <div class="entity-card">
+          <div class="entity-label">1. WhatsApp Cloud API Layer</div>
+          <p style="font-size: 0.85rem; color: #d1d5db; margin-top: 0.4rem;">
+            Configure webhook listener endpoint (Node.js Express / Python FastAPI) registered on Meta for Developers. Verify webhook token and handle inbound message events.
+          </p>
+        </div>
+        <div class="entity-card">
+          <div class="entity-label">2. NLP & Vision OCR Parser</div>
+          <p style="font-size: 0.85rem; color: #d1d5db; margin-top: 0.4rem;">
+            Use LLM (Claude 3.5 / OpenAI GPT-4o / Llama 3) with Structured Outputs JSON mode to extract currency amounts, categories, counterparties, and payment terms. Pass receipts through Vision API.
+          </p>
+        </div>
+        <div class="entity-card">
+          <div class="entity-label">3. Financial Ledger & Cron Daemon</div>
+          <p style="font-size: 0.85rem; color: #d1d5db; margin-top: 0.4rem;">
+            Relational DB (MySQL / PostgreSQL) storing <code>transactions</code>, <code>debts</code>, and <code>reminders</code>. Cron worker runs scheduled check-ins and dispatches WhatsApp alert templates.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Image Receipt Modal -->
+  <div class="modal-backdrop" id="imageModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">📷 Receipt OCR Inspection Modal</div>
+        <button class="modal-close" id="modalClose">✕</button>
+      </div>
+      <div class="modal-body">
+        <img src="assets/receipt.jpg" alt="Bank Receipt" id="modalImg" class="modal-img">
+        <div style="font-size: 0.85rem; color: #9ca3af; text-align: center;">
+          ✅ Scanned Fields: <strong>Mr. John</strong> • <strong>₦30,000.00</strong> • <strong>23/Oct/2025</strong> • <em>Payment for Data analysis</em>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/chat-engine.js"></script>
+  <script>
+    const allScenariosData = {
+      1: {
+        title: 'Scenario 1: Compound Transaction Logging & Receipt OCR',
+        desc: 'Demonstrates parsing expenses + partial income with auto-scheduled debt reminders, followed by an image receipt document scan with OCR extraction.',
+        date: 'August 13, 2026',
+        messages: [
+          {
+            sender: 'me',
+            type: 'text',
+            text: `Payment for starlink on 11th August 2026: 56,000<br>Received payment for class on datanalysis from Mr. Amos on 13th August 2026(part payment to settle balance of N40,000 on 20th August 2026): 50,000`,
+            time: '10:48 AM'
+          },
+          {
+            sender: 'bot',
+            type: 'text',
+            text: `Noted. This has been recorded. ✅<br><br>• <strong>Expense:</strong> ₦56,000 (Starlink - 11 Aug 2026)<br>• <strong>Income:</strong> ₦50,000 (Mr. Amos - Data Analysis)<br>• <strong>Balance Due:</strong> ₦40,000 (Scheduled for 20 Aug 2026 ⏰)<br><br>Manage records here: <a href="https://chatadmin.02innovationslab.com/records/manage/txn-20260813-8942" target="_blank" class="wa-link">chatadmin.02innovationslab.com/records/manage/...</a>`,
+            time: '10:48 AM',
+            actions: [
+              { label: '📊 View Ledger Records', url: 'https://chatadmin.02innovationslab.com/records/manage/txn-20260813-8942' },
+              { label: '⏰ Check Debt Reminder for Mr. Amos', url: 'https://chatadmin.02innovationslab.com/debt/amos40k' }
+            ]
+          },
+          {
+            sender: 'me',
+            type: 'image',
+            imageSrc: 'assets/receipt.jpg',
+            caption: `[Uploaded payment receipt document carrying amount and description]`,
+            time: '10:50 AM'
+          },
+          {
+            sender: 'bot',
+            type: 'text',
+            text: `From uploaded document, this is what I got: 🔍<br><br>• <strong>Amount:</strong> ₦30,000<br>• <strong>Description:</strong> Payment for Data analysis for Mr. John<br>• <strong>Date:</strong> 23/October/2025<br>• <strong>Recipient:</strong> 02 Innovation Lab`,
+            time: '10:50 AM',
+            actions: [
+              { label: '✅ Confirm & Post to Books', onClick: "alert('Transaction ₦30,000 for Mr. John confirmed and posted to ledger!')" },
+              { label: '✏️ Edit Scanned Fields', onClick: "alert('Opening edit form...')" }
+            ]
+          }
+        ],
+        entities: [
+          { label: 'Parsed Expense', val: '₦56,000.00', note: 'Starlink • 11 Aug 2026 • Category: Internet' },
+          { label: 'Parsed Part-Income', val: '₦50,000.00', note: 'Mr. Amos • Data Analysis Class • 13 Aug 2026' },
+          { label: 'Auto-Created Debt', val: '₦40,000.00 Due', note: 'Customer: Mr. Amos • Due Date: 20 Aug 2026' },
+          { label: 'OCR Scanned Receipt', val: '₦30,000.00', note: 'Payer: Mr. John • 23 Oct 2025 • High Confidence' }
+        ],
+        webhook: `{
+  "messaging_product": "whatsapp",
+  "messages": [{
+    "from": "2348031234567",
+    "type": "text",
+    "text": { "body": "Payment for starlink on 11th August 2026: 56,000..." }
+  }]
+}`,
+        sql: `INSERT INTO transactions (company_id, type, amount, category, description, transaction_date)
+VALUES ('02_LAB', 'EXPENSE', 56000.00, 'Internet', 'Starlink', '2026-08-11');
+
+INSERT INTO debts_receivables (customer_name, amount_due, due_date, status)
+VALUES ('Mr. Amos', 40000.00, '2026-08-20', 'UNPAID');`,
+        nlp: `Extract multiple compound transactions:
+- Identify EXPENSE vs INCOME
+- Automatically create DEBT entries when partial balances & dates are stated.`
+      },
+
+      2: {
+        title: 'Scenario 2: Financial Status & PDF Statement Export',
+        desc: 'Demonstrates instant balance calculations (Debts, Expenses, Income, Net Profit) + PDF document generation and deep-link generation.',
+        date: 'September 20, 2026',
+        messages: [
+          {
+            sender: 'me',
+            type: 'text',
+            text: `Hey, I want to know our current financial status`,
+            time: '11:15 AM'
+          },
+          {
+            sender: 'bot',
+            type: 'text',
+            text: `Ok sure, this is a basic summary for this month (September 1st - 20th): 📊`,
+            reportCard: [
+              { label: '📉 Debts / Receivables', value: '₦29,000' },
+              { label: '💸 Expenses', value: '₦3,030,000' },
+              { label: '💰 Income', value: '₦40,000,000' },
+              { label: '📈 Net Operating Cash Flow', value: '+₦36,970,000', isNet: true }
+            ],
+            actions: [
+              { label: '📄 Download summary.pdf (1.2 MB)', url: 'https://chatadmin.02innovationslab.com/summary/93939/pdf' },
+              { label: '🌐 Open Web Analytics Dashboard', url: 'https://chatadmin.02innovationslab.com/summary/93939/overview' }
+            ],
+            time: '11:15 AM'
+          }
+        ],
+        entities: [
+          { label: 'Report Range', val: 'Sep 1 - Sep 20, 2026', note: 'MTD Fiscal Period' },
+          { label: 'Total Income', val: '₦40,000,000.00', note: 'Tuition & Consulting' },
+          { label: 'Total Expenses', val: '₦3,030,000.00', note: 'Salaries & Ops' },
+          { label: 'Net Profit Margin', val: '+₦36,970,000.00', note: '92.4% Operating Margin' }
+        ],
+        webhook: `{
+  "messaging_product": "whatsapp",
+  "to": "2348031234567",
+  "type": "document",
+  "document": {
+    "link": "https://chatadmin.02innovationslab.com/reports/summary.pdf",
+    "filename": "summary.pdf"
+  }
+}`,
+        sql: `SELECT 
+  SUM(CASE WHEN type = 'INCOME' THEN amount ELSE 0 END) AS total_income,
+  SUM(CASE WHEN type = 'EXPENSE' THEN amount ELSE 0 END) AS total_expenses
+FROM transactions WHERE transaction_date BETWEEN '2026-09-01' AND '2026-09-20';`,
+        nlp: `Intent: GET_FINANCIAL_STATUS. Aggregate ledger tables and stream document media object.`
+      },
+
+      3: {
+        title: 'Scenario 3: Proactive Daily Check-In & Duplicate Guard',
+        desc: 'Scheduled 5:00 PM daily check-in prompt, informal batch expense logging, and fuzzy duplicate detection.',
+        date: 'Today (5:00 PM)',
+        messages: [
+          {
+            sender: 'bot',
+            type: 'text',
+            text: `Hello, did you have any financial accounting to report today? 📝`,
+            time: '5:00 PM'
+          },
+          {
+            sender: 'me',
+            type: 'text',
+            text: `Yes, Here they are:<br>29,000 for buying toiletries<br>10,999 for office coffee beans`,
+            time: '5:02 PM'
+          },
+          {
+            sender: 'bot',
+            type: 'text',
+            text: `Noted and recorded. ✅<br><br>• <strong>Toiletries:</strong> ₦29,000<br>• <strong>Coffee Beans:</strong> ₦10,999<br>• <strong>Total logged:</strong> ₦39,999<br><br>Click on this link to see the records entered and also add more: <a href="https://chatadmin.02innovationslab.com/summary/manage/02092026/txn883" target="_blank" class="wa-link">chatadmin.02innovationslab.com/summary/manage/02092026/...</a>`,
+            time: '5:02 PM'
+          },
+          {
+            sender: 'bot',
+            type: 'text',
+            text: `I see <strong>₦29,000</strong> twice today. Please check and confirm it is not a duplicate entry:`,
+            alertCard: {
+              title: 'Potential Duplicate Entry Detected',
+              message: 'Previous ₦29,000 was logged earlier today. Is this an additional separate expense?'
+            },
+            actions: [
+              { label: '✅ Keep Both (Separate Expenses)', onClick: "alert('Confirmed: Both ₦29k entries kept.')" },
+              { label: '🗑️ Delete Duplicate Entry', danger: true, onClick: "alert('Deleted duplicate ₦29,000 entry!')" }
+            ],
+            time: '5:03 PM'
+          }
+        ],
+        entities: [
+          { label: 'Daily Cron Trigger', val: '17:00 PM Daily', note: 'Automated Check-in' },
+          { label: 'Batch Item 1', val: '₦29,000.00', note: 'Toiletries Expense' },
+          { label: 'Batch Item 2', val: '₦10,999.00', note: 'Coffee Beans Expense' },
+          { label: 'Duplicate Flag', val: '⚠️ Duplicate ₦29k', note: 'Matched earlier morning txn' }
+        ],
+        webhook: `{
+  "type": "interactive",
+  "interactive": {
+    "type": "button",
+    "body": { "text": "I see 29,000 twice today, check and confirm..." }
+  }
+}`,
+        sql: `SELECT id FROM transactions WHERE amount = 29000 AND created_at >= CURDATE();`,
+        nlp: `Fuzzy duplicate verification: If same amount logged in same calendar day, prompt user with interactive quick reply buttons.`
+      },
+
+      4: {
+        title: 'Scenario 4: Customer Debt Reminder & Rescheduling',
+        desc: 'Proactive reminder for 12:00 PM debt collection, management portal deep link, and acknowledgement response.',
+        date: 'Yesterday',
+        messages: [
+          {
+            sender: 'bot',
+            type: 'text',
+            text: `⏰ You have debt reminder to reach out to customer by <strong>12pm tomorrow</strong>.<br><br>Customer: <strong>Mr. Amos</strong><br>Balance Due: <strong>₦40,000</strong><br><br>Please don't forget to update the status of the debt or set a new reminder for the debt.<br>Use this link: <a href="https://chatadmin.02innovationslab.com/debt/user34/manage" target="_blank" class="wa-link">chatadmin.02innovationslab.com/debt/user34/...</a>`,
+            actions: [
+              { label: '✅ Mark Debt as Paid (₦40,000)', onClick: "alert('Status updated: Mr. Amos marked as FULLY PAID!')" },
+              { label: '⏳ Snooze Reminder (3 Days)', onClick: "alert('Reminder postponed.')" }
+            ],
+            time: '9:30 AM'
+          },
+          {
+            sender: 'me',
+            type: 'text',
+            text: `Thank you`,
+            time: '9:32 AM'
+          },
+          {
+            sender: 'bot',
+            type: 'text',
+            text: `You're welcome! I will notify you again tomorrow at 11:30 AM before your 12:00 PM follow-up. 👍`,
+            time: '9:32 AM'
+          }
+        ],
+        entities: [
+          { label: 'Customer ID', val: 'user34 (Mr. Amos)', note: 'Training Balance' },
+          { label: 'Outstanding Balance', val: '₦40,000.00', note: 'Receivable Due' },
+          { label: 'Target Followup Time', val: 'Tomorrow, 12:00 PM', note: 'Pre-alert at 11:30 AM' }
+        ],
+        webhook: `{ "messaging_product": "whatsapp", "type": "template", "template": { "name": "debt_reminder" } }`,
+        sql: `UPDATE debts_receivables SET status = 'SETTLED' WHERE customer_id = 'user34';`,
+        nlp: `Proactive trigger dispatched based on scheduled debt balance due date.`
+      },
+
+      5: {
+        title: 'Scenario 5: Upcoming Liabilities & Scheduled Reminders',
+        desc: 'Pre-due alerts for recurring liabilities (Salaries, Statutory Tax clearance, Utilities) with single-click reconciliation.',
+        date: 'Today',
+        messages: [
+          {
+            sender: 'bot',
+            type: 'text',
+            text: `🔔 You have upcoming payments based on reminders you set:<br><br>• <strong>Salaries:</strong> ₦123,999 (Due in 3 days)<br>• <strong>Tax clearance:</strong> ₦390,000 (Due in 5 days)<br><br>Manage all reminders here: <a href="https://chatadmin.02innovationslab.com/reminder/all/upcoming" target="_blank" class="wa-link">chatadmin.02innovationslab.com/reminder/all/...</a>`,
+            actions: [
+              { label: '💳 Mark Salaries Paid (₦123,999)', onClick: "alert('Salaries marked as disbursed and logged into Expense ledger.')" },
+              { label: '🏛️ Mark Tax Clearance Paid (₦390,000)', onClick: "alert('Tax clearance marked as paid.')" },
+              { label: '⚙️ Manage All Reminders', url: 'https://chatadmin.02innovationslab.com/reminder/all/manage' }
+            ],
+            time: '8:45 AM'
+          }
+        ],
+        entities: [
+          { label: 'Payroll Obligation', val: '₦123,999.00', note: 'Due in 3 Days (Sep 25)' },
+          { label: 'Tax Remittance', val: '₦390,000.00', note: 'Due in 5 Days (Sep 28)' },
+          { label: 'Total Scheduled Outflow', val: '₦513,999.00', note: 'Cash reserves sufficient' }
+        ],
+        webhook: `{ "messaging_product": "whatsapp", "type": "interactive", "interactive": { "type": "list" } }`,
+        sql: `SELECT * FROM recurring_payables WHERE due_date BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 7 DAY);`,
+        nlp: `Consolidate upcoming payables into single actionable morning digest message.`
+      }
+    };
+
+    function loadScenario(num, btn) {
+      if (btn) {
+        document.querySelectorAll('.tab-pill-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+
+      const data = allScenariosData[num];
+      if (!data) return;
+
+      document.getElementById('scenarioTitle').innerText = data.title;
+      document.getElementById('scenarioDesc').innerText = data.desc;
+      document.getElementById('chatDateDivider').innerText = data.date;
+
+      // Update Dev Specs
+      const grid = document.getElementById('dynamicEntityGrid');
+      grid.innerHTML = data.entities.map(e => `
+        <div class="entity-card">
+          <div class="entity-label">${e.label}</div>
+          <div class="entity-val">${e.val}</div>
+          <div class="entity-note">${e.note}</div>
+        </div>
+      `).join('');
+
+      document.getElementById('webhookJsonCode').innerText = data.webhook;
+      document.getElementById('databaseSqlCode').innerText = data.sql;
+      document.getElementById('nlpPromptCode').innerText = data.nlp;
+
+      // Re-init engine
+      if (window.engine) {
+        window.engine.stopAutoPlay();
+      }
+
+      window.engine = new ChatPrototypeEngine({
+        scenarioId: `scenario${num}`,
+        messages: data.messages,
+        containerId: 'chatBody'
+      });
+
+      // Jump to show all by default on scenario switch so reviewer sees complete state immediately
+      window.engine.jumpToEnd();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadScenario(1, document.querySelector('.tab-pill-btn.active'));
+    });
+  </script>
+</body>
+</html>

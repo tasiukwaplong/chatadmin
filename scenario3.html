@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scenario 3: Daily Accounting Check-in & Duplicate Detection - 02 Innovation Lab</title>
+  <link rel="stylesheet" href="css/whatsapp.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <nav class="portal-navbar">
+    <a href="index.html" class="brand-wrapper">
+      <img src="assets/logo.jpg" alt="02 Innovation Lab" class="brand-logo">
+      <div class="brand-title-group">
+        <h1>02 Innovation Lab</h1>
+        <div class="brand-subtitle">WhatsApp Accounting Bot Prototype</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-pill">🏠 All Scenarios</a>
+      <a href="scenario1.html" class="nav-pill">⚡ Scenario 1</a>
+      <a href="scenario2.html" class="nav-pill">📊 Scenario 2</a>
+      <a href="scenario3.html" class="nav-pill active">⚠️ Scenario 3 <span class="badge">Daily & Duplicates</span></a>
+      <a href="scenario4.html" class="nav-pill">⏰ Scenario 4</a>
+      <a href="scenario5.html" class="nav-pill">🔔 Scenario 5</a>
+    </div>
+  </nav>
+
+  <!-- Prototype Workspace -->
+  <div class="prototype-container">
+    
+    <!-- Mobile Phone Mockup Frame -->
+    <div class="phone-mockup-wrapper">
+      <div class="phone-island">
+        <div class="island-camera"></div>
+        <div class="island-sensor"></div>
+      </div>
+
+      <div class="phone-screen">
+        <!-- Status Bar -->
+        <div class="phone-statusbar">
+          <span>17:00</span>
+          <div class="statusbar-icons">
+            <span>5G</span>
+            <span>📶</span>
+            <span>95% 🔋</span>
+          </div>
+        </div>
+
+        <!-- WhatsApp Chat Header -->
+        <div class="wa-chat-header">
+          <div class="wa-header-left">
+            <span class="wa-back-btn">‹</span>
+            <div class="wa-avatar-box">
+              <img src="assets/logo.jpg" alt="02 Bot" class="wa-avatar">
+            </div>
+            <div class="wa-contact-info">
+              <div class="wa-contact-name">
+                02 Innovation Lab
+                <span class="wa-verified-badge">✓</span>
+              </div>
+              <div class="wa-contact-status">
+                <span class="status-dot"></span>
+                Daily Accounting Assistant
+              </div>
+            </div>
+          </div>
+          <div class="wa-header-actions">
+            <button class="wa-icon-btn" title="Video Call">📹</button>
+            <button class="wa-icon-btn" title="Voice Call">📞</button>
+            <button class="wa-icon-btn" title="More Options">⋮</button>
+          </div>
+        </div>
+
+        <!-- Chat Conversation Messages -->
+        <div class="wa-chat-body" id="chatBody">
+          <div class="wa-date-divider">Today (5:00 PM Check-In)</div>
+          <div class="wa-security-note">
+            🤖 Scheduled 5:00 PM Daily Expense Audit Trigger
+          </div>
+
+          <!-- Typing Indicator -->
+          <div class="wa-typing-indicator" id="typingIndicator" style="display: none;">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+          </div>
+        </div>
+
+        <!-- Interactive Input Bar -->
+        <div class="wa-chat-footer">
+          <div class="wa-input-pill">
+            <span class="wa-input-icon">😊</span>
+            <input type="text" id="chatInput" placeholder="Reply to daily check-in..." />
+            <span class="wa-input-icon" title="Attachment">📎</span>
+            <span class="wa-input-icon" title="Camera">📷</span>
+          </div>
+          <button class="wa-mic-btn" id="sendBtn" title="Send message">➤</button>
+        </div>
+
+        <!-- Bottom Home Indicator -->
+        <div class="phone-home-indicator">
+          <div class="home-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Developer & Stakeholder Inspector Panel -->
+    <div class="dev-showcase-panel">
+      <div class="scenario-header">
+        <div class="scenario-title-area">
+          <h2>
+            <span>Scenario 3: Proactive Cron Prompt & Smart Duplicate Guard</span>
+            <span class="scenario-tag">Data Quality & Automation</span>
+          </h2>
+          <p class="scenario-desc">
+            Demonstrates proactive cron check-ins at end-of-day, multi-item informal expense parsing, and an intelligent fuzzy duplicate detection rule that protects ledger accuracy.
+          </p>
+        </div>
+      </div>
+
+      <!-- Playback Controls -->
+      <div class="control-bar">
+        <button class="control-btn primary" id="btnPlay">▶️ Auto-Play</button>
+        <button class="control-btn" id="btnNext">⏭️ Next Step</button>
+        <button class="control-btn" id="btnComplete">⚡ Show All</button>
+        <button class="control-btn" id="btnReset">🔄 Reset</button>
+        <button class="control-btn" id="btnThemeToggle">🌙 Dark Mode</button>
+        <span class="progress-indicator" id="stepCounter">Step 0 of 4</span>
+      </div>
+
+      <!-- Developer Specs Tabs -->
+      <div class="dev-tabs-header">
+        <button class="dev-tab-btn active" data-tab="tab-overview">🛡️ Duplicate Detection Logic</button>
+        <button class="dev-tab-btn" data-tab="tab-webhook">⏰ Cron Job Config</button>
+        <button class="dev-tab-btn" data-tab="tab-database">🗄️ SQL Fraud & Duplicate Query</button>
+        <button class="dev-tab-btn" data-tab="tab-nlp">🧠 Interactive Actions</button>
+      </div>
+
+      <!-- Tab 1: Duplicate Detection Logic -->
+      <div class="dev-tab-content active" id="tab-overview">
+        <div class="entity-grid">
+          <div class="entity-card">
+            <div class="entity-label">Daily Prompt Trigger</div>
+            <div class="entity-val">Cron: 17:00 PM (WAT)</div>
+            <div class="entity-note">Automated check-in to company accountant/founder</div>
+          </div>
+          <div class="entity-card">
+            <div class="entity-label">Parsed Expense #1</div>
+            <div class="entity-val">₦29,000.00</div>
+            <div class="entity-note">Category: Office Supplies (Toiletries)</div>
+          </div>
+          <div class="entity-card">
+            <div class="entity-label">Parsed Expense #2</div>
+            <div class="entity-val">₦10,999.00</div>
+            <div class="entity-note">Category: Refreshments & Coffee</div>
+          </div>
+          <div class="entity-card" style="border-color: rgba(245, 158, 11, 0.5);">
+            <div class="entity-label">Duplicate Warning Triggered</div>
+            <div class="entity-val" style="color: #f59e0b;">Flagged: ₦29,000.00</div>
+            <div class="entity-note">Matching amount recorded earlier at 11:20 AM today</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Cron Config -->
+      <div class="dev-tab-content" id="tab-webhook">
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>CRON_DISPATCH_SCHEDULE.json</span>
+          </div>
+          <div class="code-content">{
+  "cron_expression": "0 17 * * 1-5",
+  "timezone": "Africa/Lagos",
+  "target_recipients": ["2348031234567"],
+  "template_name": "daily_accounting_checkin",
+  "template_variables": {
+    "company_name": "02 Innovation Lab",
+    "report_date": "2026-09-02"
+  },
+  "endpoint": "https://graph.facebook.com/v19.0/{{PHONE_NUMBER_ID}}/messages"
+}</div>
+        </div>
+      </div>
+
+      <!-- Tab 3: SQL Duplicate Check -->
+      <div class="dev-tab-content" id="tab-database">
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>DUPLICATE_CHECK_QUERY.sql</span>
+          </div>
+          <div class="code-content">-- Check if an identical amount was recorded in the last 24 hours
+SELECT id, amount, description, created_at
+FROM transactions
+WHERE company_id = '02_INNOVATION_LAB'
+  AND amount = 29000.00
+  AND created_at >= NOW() - INTERVAL 1 DAY;
+
+-- If count > 1, trigger WhatsApp interactive alert message with Action Buttons</div>
+        </div>
+      </div>
+
+      <!-- Tab 4: Interactive Actions -->
+      <div class="dev-tab-content" id="tab-nlp">
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>WHATSAPP_BUTTONS_PAYLOAD.json</span>
+          </div>
+          <div class="code-content">{
+  "type": "interactive",
+  "interactive": {
+    "type": "button",
+    "body": {
+      "text": "⚠️ I see 29,000 twice today, check and confirm it is not a duplicate entry."
+    },
+    "action": {
+      "buttons": [
+        {
+          "type": "reply",
+          "reply": {
+            "id": "btn_confirm_valid_29k",
+            "title": "✅ Confirm Both Valid"
+          }
+        },
+        {
+          "type": "reply",
+          "reply": {
+            "id": "btn_delete_duplicate_29k",
+            "title": "🗑️ Delete Duplicate"
+          }
+        }
+      ]
+    }
+  }
+}</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/chat-engine.js"></script>
+  <script>
+    const scenario3Messages = [
+      {
+        sender: 'bot',
+        type: 'text',
+        text: `Hello, did you have any financial accounting to report today? 📝`,
+        time: '5:00 PM'
+      },
+      {
+        sender: 'me',
+        type: 'text',
+        text: `Yes, Here they are:<br>29,000 for buying toiletries<br>10,999 for office coffee beans`,
+        time: '5:02 PM'
+      },
+      {
+        sender: 'bot',
+        type: 'text',
+        text: `Noted and recorded. ✅<br><br>• <strong>Toiletries:</strong> ₦29,000<br>• <strong>Coffee Beans:</strong> ₦10,999<br>• <strong>Total logged:</strong> ₦39,999<br><br>Click on this link to see the records entered and also add more: <a href="https://chatadmin.02innovationslab.com/summary/manage/02092026/txn883" target="_blank" class="wa-link">chatadmin.02innovationslab.com/summary/manage/02092026/...</a>`,
+        time: '5:02 PM'
+      },
+      {
+        sender: 'bot',
+        type: 'text',
+        text: `I see <strong>₦29,000</strong> twice today. Please check and confirm it is not a duplicate entry:`,
+        alertCard: {
+          title: 'Potential Duplicate Entry Detected',
+          message: 'Previous ₦29,000 was logged at 11:20 AM today. Is this an additional new expense or a duplicate?'
+        },
+        actions: [
+          { label: '✅ Keep Both (Separate Expenses)', onClick: "alert('Confirmed: Both ₦29,000 entries preserved as distinct expenses.')" },
+          { label: '🗑️ Delete Duplicate Entry', danger: true, onClick: "alert('Deleted duplicate ₦29,000 entry. Balance adjusted!')" },
+          { label: '🔍 Compare Both Entries', url: 'https://chatadmin.02innovationslab.com/summary/manage/02092026/compare' }
+        ],
+        time: '5:03 PM'
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      window.engine = new ChatPrototypeEngine({
+        scenarioId: 'scenario3',
+        messages: scenario3Messages,
+        containerId: 'chatBody'
+      });
+    });
+  </script>
+</body>
+</html>
